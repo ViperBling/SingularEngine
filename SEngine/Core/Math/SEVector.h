@@ -328,7 +328,7 @@ namespace SingularEngine
     };
 
 
-    static Vector3Type<float> Normalize(Vector3Type<float>& v) {
+    static Vector3Type<float> Normalize(const Vector3Type<float>& v) {
 
         Vector3Type<float> ret;
         float lengthScale = 1.0f / max(v.Length(), 1e-6);
@@ -340,7 +340,7 @@ namespace SingularEngine
         return ret;
     }
 
-    Vector4Type<float> Normalize(Vector4Type<float>& v) {
+    static Vector4Type<float> Normalize(const Vector4Type<float>& v) {
 
         Vector4Type<float> ret;
         float lengthScale = 1.0f / max(v.Length(), 1e-6);

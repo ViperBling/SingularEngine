@@ -438,7 +438,7 @@ namespace SingularEngine
     //////////////////////////////////////////////////////////////////////////
     inline Matrix4x4f __BuildMatrixViewLookatLH(const Vector3f& EyePosition, const Vector3f& EyeDirection, const Vector3f& UpDirection)
     {
-        auto R2 = EyeDirection.Normalize();
+        auto R2 = Normalize(EyeDirection);
         auto R0 = UpDirection.Cross(R2);
         R0.Normalize();
         auto R1 = R2.Cross(R0);
