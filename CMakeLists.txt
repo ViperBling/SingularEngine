@@ -14,6 +14,10 @@ ELSE()
     message( FATAL_ERROR "Unknown build type!" )
 ENDIF()
 
+include_directories("${PROJECT_SOURCE_DIR}/SEditor")
+include_directories("${PROJECT_SOURCE_DIR}/SEngine")
+include_directories("${PROJECT_SOURCE_DIR}/SRuntime")
+
 add_subdirectory(SEditor)
 add_subdirectory(SEngine)
 add_subdirectory(SRuntime)
@@ -21,3 +25,4 @@ add_subdirectory(SRuntime)
 
 include(CTest)
 add_subdirectory(SUnitTest)
+
