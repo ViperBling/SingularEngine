@@ -1,0 +1,14 @@
+//
+// Created by qiuso on 2022/6/6.
+//
+
+#ifndef SINGULARENGINE_DEPTHSTENCILSTATE_H
+#define SINGULARENGINE_DEPTHSTENCILSTATE_H
+
+
+class DepthStencilState {
+
+};
+
+
+#endif //SINGULARENGINE_DEPTHSTENCILSTATE_H

@@ -1,0 +1,14 @@
+//
+// Created by qiuso on 2022/6/6.
+//
+
+#ifndef SINGULARENGINE_RASTERIZATIONSTATE_H
+#define SINGULARENGINE_RASTERIZATIONSTATE_H
+
+
+class RasterizationState {
+
+};
+
+
+#endif //SINGULARENGINE_RASTERIZATIONSTATE_H

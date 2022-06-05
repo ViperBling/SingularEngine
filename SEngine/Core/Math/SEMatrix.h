@@ -85,6 +85,7 @@ namespace SingularEngine
             }
         }
 
+
         static Matrix<T, ROWS, COLS> Identity() {
 
             SINGULAR_ASSERT(ROWS == COLS);
@@ -283,6 +284,20 @@ namespace SingularEngine
         }
 
     };
+
+    template<typename T, int ROWS, int COLS>
+    static Matrix<T, ROWS, COLS> Transpose(Matrix<T, ROWS, COLS>& mat) {
+
+        SINGULAR_ASSERT(ROWS == COLS);
+        Matrix<T, ROWS, COLS> ret = mat;
+
+        for (int r = 0; r < ROWS; ++r) {
+            for (int c = 0; c < COLS; ++c) {
+                ret[c][r] = mat[r][c];
+            }
+        }
+        return ret;
+    }
 
     typedef Matrix<float, 4, 4> Matrix4x4f;
     typedef Matrix<float, 3, 3> Matrix3x3f;

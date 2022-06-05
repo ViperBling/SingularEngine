@@ -172,6 +172,15 @@ namespace SingularEngine
             return ret;
         }
 
+        friend Vector3Type<T> operator*(T scale, const Vector3Type<T>& lhs)
+        {
+            Vector3Type<T> ret;
+            ret.x = lhs.x * scale;
+            ret.y = lhs.y * scale;
+            ret.z = lhs.z * scale;
+            return ret;
+        }
+
         T Length() const {
 
             return sqrt(x * x + y * y + z * z);
@@ -184,18 +193,6 @@ namespace SingularEngine
             for (size_t i = 0; i < 3; ++i) {
                 data[i] = data[i] * lengthScale;
             }
-        }
-
-        Vector3Type<float> Normalize() const {
-
-            Vector3Type<float> ret;
-            float lengthScale = 1.0 / max(Length(), 1e-6);
-
-            for (size_t i = 0; i < 3; ++i) {
-                ret.data[i] = data[i] * lengthScale;
-            }
-
-            return ret;
         }
 
         T Dot(const Vector3Type<T>& lhs) const {
@@ -295,6 +292,16 @@ namespace SingularEngine
             return ret;
         }
 
+        friend Vector4Type<T> operator*(T scale, const Vector4Type<T>& lhs)
+        {
+            Vector4Type<T> ret;
+            ret.x = lhs.x * scale;
+            ret.y = lhs.y * scale;
+            ret.z = lhs.z * scale;
+            ret.w = lhs.w * scale;
+            return ret;
+        }
+
         T Length() const {
 
             return sqrt(x * x + y * y + z * z + w * w);
@@ -309,18 +316,6 @@ namespace SingularEngine
             }
         }
 
-        Vector4Type<float> Normalize() const {
-
-            Vector4Type<float> ret;
-            float lengthScale = 1.0 / max(Length(), 1e-6);
-
-            for (size_t i = 0; i < 4; ++i) {
-                ret.data[i] = data[i] * lengthScale;
-            }
-
-            return ret;
-        }
-
         T Dot(const Vector4Type<T>& lhs) const {
 
             T ret = 0;
@@ -331,6 +326,31 @@ namespace SingularEngine
             return ret;
         }
     };
+
+
+    static Vector3Type<float> Normalize(Vector3Type<float>& v) {
+
+        Vector3Type<float> ret;
+        float lengthScale = 1.0f / max(v.Length(), 1e-6);
+
+        for (size_t i = 0; i < 3; ++i) {
+            ret.data[i] = v.data[i] * lengthScale;
+        }
+
+        return ret;
+    }
+
+    Vector4Type<float> Normalize(Vector4Type<float>& v) {
+
+        Vector4Type<float> ret;
+        float lengthScale = 1.0f / max(v.Length(), 1e-6);
+
+        for (size_t i = 0; i < 4; ++i) {
+            ret.data[i] = v.data[i] * lengthScale;
+        }
+
+        return ret;
+    }
 
     typedef Vector2Type<float> Vector2f;
 

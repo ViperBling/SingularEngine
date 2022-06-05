@@ -11,3 +11,13 @@
 #elif defined(SINGULAR_PLATFORM_MACOS)
     #include "PlatformMacOS.h"
 #endif
+
+namespace SingularEngine
+{
+    enum class RenderAPI
+    {
+        None = 0,
+        D3D11,
+        OpenGL,
+    };
+}
