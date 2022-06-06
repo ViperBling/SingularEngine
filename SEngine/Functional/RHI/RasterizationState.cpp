@@ -1,5 +1,14 @@
-//
-// Created by qiuso on 2022/6/6.
-//
-
 #include "RasterizationState.h"
+
+using namespace SingularEngine;
+
+
+RasterizationState::RasterizationState(const RasterizationStateDesc &config) :
+    mDesc(config)
+{
+
+}
+
+RasterizationState::~RasterizationState() {
+
+}

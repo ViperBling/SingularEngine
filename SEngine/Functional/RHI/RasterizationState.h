@@ -1,14 +1,34 @@
-//
-// Created by qiuso on 2022/6/6.
-//
+#pragma once
 
-#ifndef SINGULARENGINE_RASTERIZATIONSTATE_H
-#define SINGULARENGINE_RASTERIZATIONSTATE_H
+namespace SingularEngine
+{
+    enum class RasterizationFillMode
+    {
+        Solid = 0,
+        WireFrame,
+    };
 
+    enum class RasterizationCullMode
+    {
+        None = 0,
+        Front,
+        Back,
+    };
 
-class RasterizationState {
+    struct RasterizationStateDesc
+    {
+        RasterizationFillMode fillMode;
+        RasterizationCullMode cullMode;
+        bool FrontCounterClockWise;
+    };
 
-};
+    class RasterizationState
+    {
+    public:
+        RasterizationState(const RasterizationStateDesc& config);
+        virtual ~RasterizationState();
 
-
-#endif //SINGULARENGINE_RASTERIZATIONSTATE_H
+    protected:
+        RasterizationStateDesc mDesc;
+    };
+}

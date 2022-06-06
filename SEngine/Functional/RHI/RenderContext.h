@@ -1,14 +1,10 @@
-//
-// Created by qiuso on 2022/6/6.
-//
+#pragma once
 
-#ifndef SINGULARENGINE_RENDERCONTEXT_H
-#define SINGULARENGINE_RENDERCONTEXT_H
-
-
-class RenderContext {
-
-};
-
-
-#endif //SINGULARENGINE_RENDERCONTEXT_H
+namespace SingularEngine
+{
+    class RenderContext
+    {
+    public:
+        virtual ~RenderContext(){}
+    };
+}
