@@ -1,14 +1,26 @@
-//
-// Created by qiuso on 2022/6/6.
-//
+#pragma once
 
-#ifndef SINGULARENGINE_SHADER_H
-#define SINGULARENGINE_SHADER_H
+namespace SingularEngine
+{
+    enum class ShaderType
+    {
+        Unknown = 0,
+        VertexShader,
+        PixelShader,
+    };
 
+    class Shader
+    {
+    public:
+        explicit Shader(ShaderType shaderType) :
+            mShaderType(shaderType)
+        {}
 
-class Shader {
+        virtual ~Shader() = default;
 
-};
+        virtual void Bind() = 0;
 
-
-#endif //SINGULARENGINE_SHADER_H
+    private:
+        ShaderType mShaderType;
+    };
+}

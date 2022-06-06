@@ -1,14 +1,49 @@
-//
-// Created by qiuso on 2022/6/6.
-//
+#pragma once
 
-#ifndef SINGULARENGINE_MATERIAL_H
-#define SINGULARENGINE_MATERIAL_H
+#include <string>
+#include <memory>
+#include <unordered_map>
 
+#include "Core/Math/MathPCH.h"
+#include "Functional/RHI/Shader.h"
+#include "Functional/RHI/ConstantBuffer.h"
+#include "Functional/RHI/DepthStencilState.h"
+#include "Functional/RHI/Texture.h"
 
-class Material {
+namespace SingularEngine
+{
+    enum class MaterialParameterType
+    {
+        Unknown,
+        Float,
+        Vector4,
+        Matrix,
+        Texture2D,
+    };
 
-};
+    enum class TextureShaderType
+    {
+        VS,
+        PS,
+    };
 
+    struct MaterialParameter
+    {
+        MaterialParameterType mMatType;
+        int mOffset;
+        TextureShaderType mShaderType;
+    };
 
-#endif //SINGULARENGINE_MATERIAL_H
+    enum class MaterialType
+    {
+        MeshRender,
+        PostProcess,
+        ShadowMapping,
+    };
+
+    class Material
+    {
+    public:
+        explicit Material(const std::string& materialName, MaterialType materialType);
+    };
+}

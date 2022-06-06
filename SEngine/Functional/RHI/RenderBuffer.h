@@ -1,14 +1,10 @@
-//
-// Created by qiuso on 2022/6/6.
-//
+#pragma once
 
-#ifndef SINGULARENGINE_RENDERBUFFER_H
-#define SINGULARENGINE_RENDERBUFFER_H
-
-
-class RenderBuffer {
-
-};
-
-
-#endif //SINGULARENGINE_RENDERBUFFER_H
+namespace SingularEngine
+{
+    class RenderBuffer
+    {
+    public:
+        virtual ~RenderBuffer(){}
+    };
+}
