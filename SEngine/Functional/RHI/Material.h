@@ -69,7 +69,7 @@ namespace SingularEngine
         void SetPixelShader(const std::shared_ptr<Shader>& ps) { mPS = ps; }
 
     protected:
-        virtual void BindTexture() = 0;
+        virtual void BindTextures() = 0;
 
     private:
         bool CheckParamExist(const std::string& name) const;

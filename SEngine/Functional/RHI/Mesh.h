@@ -25,7 +25,7 @@ namespace SingularEngine
         std::shared_ptr<VertexBufferCreateParam> mPositionCreateParam;
         std::shared_ptr<VertexBufferCreateParam> mNormalCreateParam;
         std::shared_ptr<VertexBufferCreateParam> mTexCoordCreateParam;
-        std::shared_ptr<VertexBufferCreateParam> mIndexCreateParam;
+        std::shared_ptr<IndexBufferCreateParam> mIndexCreateParam;
 
         PrimitiveType mPrimitiveType;
         int mMaterialIndex;

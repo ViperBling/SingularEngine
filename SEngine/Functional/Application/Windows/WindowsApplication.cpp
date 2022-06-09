@@ -12,6 +12,17 @@ using namespace SingularEngine;
 
 void WindowsApplication::Initialize(std::shared_ptr<ApplicationInitParams> param) {
     Application::Initialize(param);
+    InitMainWindow(param->WindowWidth, param->WindowHeight);
+    InitRenderer(param->RenderAPIType, param->WindowWidth, param->WindowHeight);
+
+
+    if (param->EditorMode) {
+        GUIManager::Initialize(true, true);
+    }
+    else {
+        GUIManager::Initialize(false, false);
+    }
+    SetupApplicationTitle(param);
 }
 
 void WindowsApplication::Finalize() {

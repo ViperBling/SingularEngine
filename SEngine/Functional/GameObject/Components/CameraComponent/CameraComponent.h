@@ -1,0 +1,14 @@
+//
+// Created by qiuso on 2022/6/7.
+//
+
+#ifndef SINGULARENGINE_CAMERACOMPONENT_H
+#define SINGULARENGINE_CAMERACOMPONENT_H
+
+
+class CameraComponent {
+
+};
+
+
+#endif //SINGULARENGINE_CAMERACOMPONENT_H

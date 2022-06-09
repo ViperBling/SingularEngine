@@ -34,6 +34,7 @@ namespace SingularEngine
 
     class VertexBuffer : public RenderBuffer
     {
+    public:
         VertexBuffer() = delete;
         virtual ~VertexBuffer(){}
         VertexBuffer(VertexBufferFormat vFormat, int count, int stride, int offset) :
