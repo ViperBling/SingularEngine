@@ -20,9 +20,7 @@ namespace SingularEngine
         virtual void OnWindowSizeChange(int width, int height);
 
     private:
-        static LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
-        static LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
-        LRESULT HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
+        static LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
         void InitMainWindow(int width, int height);
         void InitRenderer(RenderAPI api, int width, int height);

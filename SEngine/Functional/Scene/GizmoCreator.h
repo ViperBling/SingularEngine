@@ -1,14 +1,16 @@
-//
-// Created by qiuso on 2022/6/7.
-//
+#pragma once
 
-#ifndef SINGULARENGINE_GIZMOCREATOR_H
-#define SINGULARENGINE_GIZMOCREATOR_H
+#include <memory>
+#include <array>
 
+#include "Functional/RHI/Mesh.h"
 
-class GizmoCreator {
-
-};
-
-
-#endif //SINGULARENGINE_GIZMOCREATOR_H
+namespace SingularEngine
+{
+    class GizmoCreator
+    {
+    public:
+        static std::shared_ptr<Mesh> CreatePlane();
+        static std::shared_ptr<Mesh> CreateCube();
+    };
+}

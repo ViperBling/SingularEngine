@@ -32,7 +32,7 @@ namespace SingularEngine
 
         const std::shared_ptr<ApplicationInitParams>& GetConfig() const { return mConfig; }
 
-    private:
+    public:
         bool mbQuit;
         std::shared_ptr<ApplicationInitParams> mConfig;
     };

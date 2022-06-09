@@ -172,7 +172,7 @@ void Material::SetMatrix(const std::string &name, Matrix4x4f value) {
     }
 }
 
-void Material::SetTexture(const std::string &name, const std::shared_ptr<Texture> &value) {
+void Material::SetTexture(const std::string& name, const std::shared_ptr<Texture>& value) {
 
     if (!CheckParamExist(name)) return;
 

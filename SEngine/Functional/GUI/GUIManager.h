@@ -10,7 +10,7 @@ namespace SingularEngine
     {
     public:
 
-        static void Initialize(bool docking = false, bool mutivp = false);
+        static void Initialize(bool docking = false, bool multivp = false);
         static void Begin();
         static void End();
         static void Finalize();

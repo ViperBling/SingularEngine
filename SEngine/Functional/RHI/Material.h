@@ -62,9 +62,9 @@ namespace SingularEngine
 
         MaterialType GetMaterialType() const { return mMaterialType; }
         const std::string& GetName() const { return mMaterialName; }
+
         std::shared_ptr<Shader> GetVertexShader() { return mVS; }
         std::shared_ptr<Shader> GetPixelShader() { return mPS; }
-
         void SetVertexShader(const std::shared_ptr<Shader>& vs) { mVS = vs; }
         void SetPixelShader(const std::shared_ptr<Shader>& ps) { mPS = ps; }
 

@@ -8,6 +8,7 @@ namespace SingularEngine
 {
     class RendererD3D11 : public Renderer
     {
+    public:
         RendererD3D11() {}
         ~RendererD3D11() override = default;
 
