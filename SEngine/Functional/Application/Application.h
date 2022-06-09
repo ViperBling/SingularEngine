@@ -25,10 +25,10 @@ namespace SingularEngine
 
     public:
         virtual void Initialize(std::shared_ptr<ApplicationInitParams> params);
-        virtual void Finalize() noexcept = 0;
-        virtual void Run() noexcept;
-        virtual void Tick() noexcept = 0;
-        virtual void Render() noexcept = 0;
+        virtual void Finalize() = 0;
+        virtual void Run();
+        virtual void Tick() = 0;
+        virtual void Render() = 0;
 
         const std::shared_ptr<ApplicationInitParams>& GetConfig() const { return mConfig; }
 

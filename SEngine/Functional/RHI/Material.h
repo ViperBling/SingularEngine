@@ -12,6 +12,7 @@
 
 namespace SingularEngine
 {
+    class Texture;
     enum class MaterialParameterType
     {
         Unknown,

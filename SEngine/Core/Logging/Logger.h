@@ -15,24 +15,30 @@ namespace SingularEngine
     {
     public:
 
-        static void InitLogger(const std::string& dir, const std::string& filename);
+        /**
+         * setup logger environment
+         */
+        static void InitLogger(const char* dir, const char* filename);
 
-        static void Info(const std::string& msg, ...);
-        static void Warning(const std::string& msg, ...);
-        static void Error(const std::string& msg, ...);
+        static void Info(const char* message, ...);
+        static void Warning(const char* message, ...);
+        static void Error(const char* message, ...);
 
-        static void InfoScript(const std::string& msg, ...);
-        static void WarningScript(const std::string& msg, ...);
-        static void ErrorScript(const std::string& msg, ...);
+        static void InfoScript(const char* message, ...);
+        static void WarningScript(const char* message, ...);
+        static void ErrorScript(const char* message, ...);
 
-        static void ToConsole(LogLevel level, const std::string& msg);
-        static void ToFile(const std::string& msg);
+
+        static void ToConsole(LogLevel level, const char* message);
+        static void ToFile(const char* message);
+
 
     private:
-        static void Log(LogLevel level, const std::string& tag, const std::string& msg);
+
+        static void Log(LogLevel level, const char* tag, const char* message);
 
         static void SetupConsoleLog();
-        static void SetupFileLog(const std::string& dir, const std::string& filename);
+        static void SetupFileLog(const char* dir, const char* filename);
 
         static bool mbConsoleEnable;
         static bool mbFileEnable;

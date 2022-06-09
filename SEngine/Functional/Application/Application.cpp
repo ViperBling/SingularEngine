@@ -18,11 +18,11 @@ Application::~Application() {
 void Application::Initialize(std::shared_ptr<ApplicationInitParams> params) {
 
     mConfig = params;
-    Logger::InitLogger(params->LogDir, params->LogFile);
+    Logger::InitLogger(params->LogDir.c_str(), params->LogFile.c_str());
     AssetLoader::Init();
 }
 
-void Application::Run() noexcept {
+void Application::Run() {
 
     while (true) {
         Tick();

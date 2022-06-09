@@ -1,5 +1,5 @@
 file(GLOB_RECURSE SRuntimeSources ${PROJECT_SOURCE_DIR}/SRuntime "*.cpp" "*.c" "*.h")
-add_library(SingularRuntime ${SRuntimeSources})
+add_executable(SingularRuntime ${SRuntimeSources})
 
 target_include_directories(SingularRuntime PUBLIC ${PROJECT_SOURCE_DIR})
 target_link_libraries(SingularRuntime SingularEngine)
