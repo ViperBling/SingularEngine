@@ -24,7 +24,7 @@ std::shared_ptr<VertexShaderD3D11> VertexShaderD3D11::Create(const std::string &
     hr = D3DCompileFromFile(
         _path.c_str(), nullptr,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
-        "MainVS", "vs_5_0",
+        "main", "vs_5_0",
         dwShaderFlags, 0, &byteCode, &errorMessage);
     if (FAILED(hr)) {
         OutputDebugString(reinterpret_cast<const char*>(errorMessage->GetBufferPointer()));
@@ -69,7 +69,7 @@ std::shared_ptr<PixelShaderD3D11> PixelShaderD3D11::Create(const std::string &pa
     hr = D3DCompileFromFile(
         _path.c_str(), nullptr,
         D3D_COMPILE_STANDARD_FILE_INCLUDE,
-        "MainPS", "ps_5_0",
+        "main", "ps_5_0",
         dwShaderFlags, 0, &byteCode, &errorMessage);
 
     if (FAILED(hr)) {

@@ -44,6 +44,7 @@ namespace SingularEngine
         }
         void SetNear(float nearPlane) { mProjectionMatrixDirty = true; mNear = nearPlane; }
         void SetFar(float farPlane) { mProjectionMatrixDirty = true; mFar = farPlane; }
+        void SetFov(float fov) { mProjectionMatrixDirty = true; mFov = fov; }
         void SetAspectRatio(float ar) { mProjectionMatrixDirty = true; mAspectRatio = ar; }
         void SetViewWidth(float vw) { mProjectionMatrixDirty = true; mViewWidth = vw; }
         void SetViewHeight(float vh) { mProjectionMatrixDirty = true; mViewHeight = vh; }

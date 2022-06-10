@@ -109,6 +109,6 @@ void RenderPassPostProcess::CreateRenderItem() {
 
 void RenderPassPostProcess::CreateMaterial() {
 
-    mMaterialNone = Renderer::Instance->CreateMaterial("Global_PostProcessNone", MaterialType::PostProcess);
-    mMaterialGray = Renderer::Instance->CreateMaterial("Global_PostProcessGray", MaterialType::PostProcess);
+    mMaterialNone = Renderer::Instance->CreateMaterial("GlobalPostProcessNone", MaterialType::PostProcess);
+    mMaterialGray = Renderer::Instance->CreateMaterial("GlobalPostProcessGray", MaterialType::PostProcess);
 }

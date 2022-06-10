@@ -44,7 +44,7 @@ void RenderPassShadowMap::InitShadowMapRT() {
 
 void RenderPassShadowMap::InitShadowMapMaterial() {
 
-    mShadowMapMaterial = Renderer::Instance->CreateMaterial("Global_ShadowMapping", MaterialType::ShadowMapping);
+    mShadowMapMaterial = Renderer::Instance->CreateMaterial("GlobalShadowMapping", MaterialType::ShadowMapping);
 }
 
 void RenderPassShadowMap::CollectRenderItems() {
