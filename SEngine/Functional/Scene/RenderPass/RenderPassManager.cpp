@@ -46,7 +46,7 @@ void RenderPassManager::RenderPostProcess(const std::shared_ptr<RenderTarget> &r
 void RenderPassManager::ResizeResolution(int width, int height) {
 
     mRenderPassMeshMaterial->ResizeResolution(width, height);
-    mRenderPassMeshMaterial->ResizeResolution(width, height);
+    mRenderPassPostProcess->ResizeResolution(width, height);
 }
 
 void RenderPassManager::SetPostProcessEffect(PostProcessEffect effect) {

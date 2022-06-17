@@ -20,7 +20,7 @@ namespace SingularEngine
 
         virtual void Bind() = 0;
 
-    private:
+    public:
         ShaderType mShaderType;
     };
 }

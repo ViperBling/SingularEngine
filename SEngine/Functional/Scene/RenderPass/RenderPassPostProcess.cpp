@@ -14,8 +14,8 @@ RenderPassPostProcess::RenderPassPostProcess() :
 
 void RenderPassPostProcess::Render(
     const std::shared_ptr<RenderTarget> &inputRT,
-    const std::shared_ptr<RenderTarget> &outputRT) {
-
+    const std::shared_ptr<RenderTarget> &outputRT)
+{
     Renderer::Instance->SetRenderTarget(outputRT);
     Renderer::Instance->ClearRenderTarget(outputRT, 0.1f, 0.1f, 0.1f, 1.0f);
     Renderer::Instance->SetRasterizationState(nullptr);
@@ -74,7 +74,7 @@ void RenderPassPostProcess::CreateRenderItem() {
         {1, 1, 0}
     };
 
-    std::array<int, 6> indexDataLeft {0, 1, 2, 2, 1, 3};
+    unsigned int* indexDataLeft = new unsigned int[6] {0, 1, 2, 2, 1, 3};
 
     auto param = std::make_shared<MeshCreateParam>();
     auto subParam = std::make_shared<SubMeshCreateParam>();
@@ -90,7 +90,7 @@ void RenderPassPostProcess::CreateRenderItem() {
     subParam->mIndexCreateParam = std::make_shared<IndexBufferCreateParam>();
     subParam->mIndexCreateParam->mElementCount = 6;
     subParam->mIndexCreateParam->mFormat = IndexBufferFormat::UINT32;
-    subParam->mIndexCreateParam->mIndexData = indexDataLeft.data();
+    subParam->mIndexCreateParam->mIndexData = indexDataLeft;
 
     if (Renderer::Instance->GetRenderAPI() == RenderAPI::D3D11) {
         subParam->mTexCoordCreateParam->mVertexData = TexCoordDataLeft;
@@ -98,6 +98,8 @@ void RenderPassPostProcess::CreateRenderItem() {
     else {
         subParam->mTexCoordCreateParam->mVertexData = TexCoordDataRight;
     }
+
+    delete [] indexDataLeft;
 
     subParam->mPrimitiveType = PrimitiveType::Triangle;
 

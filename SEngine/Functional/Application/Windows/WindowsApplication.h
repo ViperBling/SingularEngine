@@ -3,6 +3,8 @@
 #include "Platform/Platform.h"
 #include "Functional/Application/Application.h"
 
+#ifdef SINGULAR_PLATFORM_WINDOWS
+
 namespace SingularEngine
 {
     class WindowsApplication : public Application
@@ -29,3 +31,5 @@ namespace SingularEngine
         HWND mHWND{};
     };
 }
+
+#endif

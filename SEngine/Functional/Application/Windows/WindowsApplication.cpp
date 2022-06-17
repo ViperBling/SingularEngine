@@ -15,10 +15,13 @@ using namespace SingularEngine;
 
 
 void WindowsApplication::Initialize(std::shared_ptr<ApplicationInitParams> param) {
+
     Application::Initialize(param);
     InitMainWindow(param->WindowWidth, param->WindowHeight);
     InitRenderer(param->RenderAPIType, param->WindowWidth, param->WindowHeight);
 
+    SceneManager::Instance = new SceneManager;
+    SceneManager::Instance->Initialize();
 
     if (param->EditorMode) {
         GUIManager::Initialize(true, true);

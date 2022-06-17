@@ -68,6 +68,7 @@ void Convert3ChanelTo4Chanel(const unsigned char* origin, unsigned char* target,
 void VisitAssimpSceneNodeToLoadMesh(const aiScene* scene, const aiNode* node, aiMatrix4x4 parentTransform, const std::shared_ptr<MeshCreateParam>& param) {
 
     for (int i = 0; i < node->mNumMeshes; ++i) {
+
         auto meshNode = scene->mMeshes[node->mMeshes[i]];
         auto modelMatrix = parentTransform * node->mTransformation;
         auto subParam = std::make_shared<SubMeshCreateParam>();
@@ -98,11 +99,13 @@ void VisitAssimpSceneNodeToLoadMesh(const aiScene* scene, const aiNode* node, ai
         subParam->mIndexCreateParam->mFormat = IndexBufferFormat::UINT32;
 
         if (meshNode->mPrimitiveTypes == aiPrimitiveType::aiPrimitiveType_TRIANGLE) {
+
             int elementCount = (int)meshNode->mNumFaces * 3;
             subParam->mIndexCreateParam->mIndexData = new unsigned int[elementCount];
             subParam->mIndexCreateParam->mElementCount = elementCount;
 
             for (size_t j = 0; j < meshNode->mNumFaces; j++) {
+
                 auto face = meshNode->mFaces[j];
                 auto ptr = (unsigned int*)(subParam->mIndexCreateParam->mIndexData);
                 ptr[j * 3] = face.mIndices[0];
@@ -132,7 +135,7 @@ std::shared_ptr<MeshCreateParam> AssetLoader::LoadMesh(const std::string &path) 
 
     auto sceneRoot = MeshImporter->ReadFile(path, readFlag);
     param->mRawResource = sceneRoot;
-    param->mMaterialCount = sceneRoot->mNumMaterials;
+    param->mMaterialCount = (int)sceneRoot->mNumMaterials;
     SINGULAR_ASSERT(sceneRoot);
 
     VisitAssimpSceneNodeToLoadMesh(sceneRoot, sceneRoot->mRootNode, aiMatrix4x4(), param);

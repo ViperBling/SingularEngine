@@ -13,7 +13,7 @@ RenderPassMeshMaterial::RenderPassMeshMaterial(CreateRendererContextParam param)
     desc.width = param.mResolutionWidth;
     desc.height = param.mResolutionHeight;
     mMainRT = Renderer::Instance->CreateRenderTarget(desc);
-    CreateCoordAxisRenderItem();
+//    CreateCoordAxisRenderItem();
 }
 
 void RenderPassMeshMaterial::Render(const std::shared_ptr<RasterizationState> &rs) {
@@ -93,11 +93,13 @@ void RenderPassMeshMaterial::CreateCoordAxisRenderItem() {
     vbp->mElementCount = 12;
     vbp->mVertexData = pointsLeftHand;
 
-    std::array<std::array<int, 2>, 6> indices {};
+
+    unsigned int** indices = new unsigned int* [6];
 
     auto mp = std::make_shared<MeshCreateParam>();
     for (int i = 0; i < 6; i++) {
 
+        indices[i] = new unsigned int[2];
         indices[i][0] = i * 2;
         indices[i][1] = i * 2 + 1;
 
@@ -105,7 +107,7 @@ void RenderPassMeshMaterial::CreateCoordAxisRenderItem() {
         ibp->mStartIndex = 0;
         ibp->mFormat = IndexBufferFormat::UINT32;
         ibp->mElementCount = 2;
-        ibp->mIndexData = indices[i].data();
+        ibp->mIndexData = indices[i];
 
         auto smp = std::make_shared<SubMeshCreateParam>();
         smp->mPositionCreateParam = vbp;
@@ -120,10 +122,11 @@ void RenderPassMeshMaterial::CreateCoordAxisRenderItem() {
     item->AllocateMaterials(6);
 
     for (int i = 0; i < 6; i++) {
-        auto material = Renderer::Instance->CreateMaterial("Color_Axis", MaterialType::MeshRender);
+        auto material = Renderer::Instance->CreateMaterial("ColorAxis", MaterialType::MeshRender);
         material->SetVector4("BaseColor", colors[i]);
         item->SetMaterial(i, material);
     }
 
     mAxisRenderItems.emplace_back(item);
+    delete [] indices;
 }

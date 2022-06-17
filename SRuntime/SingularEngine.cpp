@@ -9,10 +9,10 @@ int main()
 {
     auto param = std::make_shared<ApplicationInitParams>();
     param->RenderAPIType = RenderAPI::D3D11;
-    param->WindowWidth = 1280;
-    param->WindowHeight = 720;
-    param->LogFile = "Player";
-    param->LogDir = "Logs";
+    param->WindowWidth = 1920;
+    param->WindowHeight = 1080;
+    param->LogFile = (char*)"Player";
+    param->LogDir = (char*)"Logs";
     param->EditorMode = false;
 
     auto app = new WindowsRuntime();

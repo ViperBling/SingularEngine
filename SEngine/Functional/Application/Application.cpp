@@ -25,7 +25,9 @@ void Application::Initialize(std::shared_ptr<ApplicationInitParams> params) {
 void Application::Run() {
 
     while (true) {
+
         Tick();
+
         if (mbQuit) break;
 
         Render();

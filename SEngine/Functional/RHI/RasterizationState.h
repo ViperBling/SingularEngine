@@ -11,8 +11,8 @@ namespace SingularEngine
     enum class RasterizationCullMode
     {
         None = 0,
-        Front,
-        Back,
+        Front = 1,
+        Back = 2
     };
 
     struct RasterizationStateDesc

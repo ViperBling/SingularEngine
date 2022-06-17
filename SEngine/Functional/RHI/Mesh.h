@@ -53,6 +53,8 @@ namespace SingularEngine
             mMaterialCount(0)
         {}
 
+        ~MeshCreateParam() = default;
+
         size_t GetSubMeshCount() const {
             return mSubMeshCreateParam.size();
         }

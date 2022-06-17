@@ -22,7 +22,8 @@ std::shared_ptr<Mesh> GizmoCreator::CreatePlane() {
             {0.0f, 1.0f, 0.0f}
         };
 
-    std::array<unsigned int, 6> indexData {0, 1, 2, 0, 2, 3};
+
+    unsigned int* indexData = new unsigned int[6] {0, 1, 2, 0, 2, 3};
 
     auto param = std::make_shared<MeshCreateParam>();
     auto subParam = std::make_shared<SubMeshCreateParam>();
@@ -44,7 +45,9 @@ std::shared_ptr<Mesh> GizmoCreator::CreatePlane() {
     subParam->mIndexCreateParam->mElementCount = 6;
     subParam->mIndexCreateParam->mFormat = IndexBufferFormat::UINT32;
     subParam->mIndexCreateParam->mStartIndex = 0;
-    subParam->mIndexCreateParam->mIndexData = indexData.data();
+    subParam->mIndexCreateParam->mIndexData = indexData;
+
+    delete [] indexData;
 
     param->mSubMeshCreateParam.push_back(subParam);
     param->mMaterialCount = 1;
@@ -123,7 +126,7 @@ std::shared_ptr<Mesh> GizmoCreator::CreateCube() {
             {0.0f, 0.0f, 1.0f},
         };
 
-    std::array<unsigned int, 36> indexData {
+    unsigned int* indexData = new unsigned int[36]{
         0, 1, 2, 0, 2, 3, 4, 6, 5, 4, 7, 6,
         8, 11, 10, 8, 10, 9, 12, 14, 15, 12, 13, 14,
         16, 17, 18, 16, 18, 19, 20, 22, 21, 20, 23, 22
@@ -149,10 +152,13 @@ std::shared_ptr<Mesh> GizmoCreator::CreateCube() {
     subParam->mIndexCreateParam->mElementCount = 36;
     subParam->mIndexCreateParam->mFormat = IndexBufferFormat::UINT32;
     subParam->mIndexCreateParam->mStartIndex = 0;
-    subParam->mIndexCreateParam->mIndexData = indexData.data();
+    subParam->mIndexCreateParam->mIndexData = indexData;
 
     param->mSubMeshCreateParam.push_back(subParam);
     param->mMaterialCount = 1;
     auto mesh = Renderer::Instance->CreateMesh(param);
+
+    delete [] indexData;
+
     return mesh;
 }

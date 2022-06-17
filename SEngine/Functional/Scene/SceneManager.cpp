@@ -5,7 +5,6 @@
 #include "Functional/Scene/GizmoCreator.h"
 #include "Functional/Scene/RenderPass/RenderPassManager.h"
 
-
 using namespace SingularEngine;
 
 SceneManager* SceneManager::Instance = nullptr;
@@ -48,6 +47,23 @@ void SceneManager::LoadScene(const std::string &path) {
     camera->AddComponent<CameraComponent>();
 
     // TODO
+    auto girlScene = SceneManager::Instance->CreateGameObject("girlScene", nullptr);
+    girlScene->GetTransform()->SetScale(0.1f, 0.1f, 0.1f);
+    girlScene->GetTransform()->SetEuler(0.0f, 0.2f, 0.0f);
+
+    auto meshParam = AssetLoader::LoadMesh("Assets/Models/asuna.fbx");
+    auto mesh = Renderer::Instance->CreateMesh(meshParam);
+    auto meshComp = girlScene->AddComponent<MeshRenderComponent>();
+    meshComp->SetMesh(mesh);
+    for(int i = 0; i < meshParam->mMaterialCount; i++)
+    {
+        auto material = Renderer::Instance->CreateMaterial("Diffuse_Mesh", MaterialType::MeshRender);
+        meshComp->SetMaterial(i, material);
+    }
+
+    auto tex = Renderer::Instance->CreateTexture("Assets/Textures/asuna_diffuse.jpg");
+    auto material = meshComp->GetMaterial(0);
+    material->SetTexture("MainTex", tex);
 
     // ground
     auto ground = SceneManager::Instance->CreateGameObject("ground", nullptr);
@@ -86,7 +102,8 @@ std::shared_ptr<GameObject> SceneManager::GetRoot() {
 
 std::shared_ptr<GameObject> SceneManager::CreateGameObject(
     const std::string &name,
-    const std::shared_ptr<GameObject> &parent) {
+    const std::shared_ptr<GameObject> &parent)
+{
 
     auto obj = std::make_shared<GameObject>(name);
     if (parent == nullptr) {
